@@ -14,14 +14,12 @@
 # limitations under the License.
 #
 
-
 # Prebuilt module SDKs require prebuilt modules to work, and currently
 # prebuilt modules are only provided for com.google.android.xxx.
 MODULE_BUILD_FROM_SOURCE := false
 
-# Prebuilt module SDKs require prebuilt modules to work, and currently
-# prebuilt modules are only provided for com.google.android.xxx.
-MODULE_BUILD_FROM_SOURCE := false
+# Networkstack certificate
+PRODUCT_MAINLINE_SEPOLICY_DEV_CERTIFICATES := vendor/pixeldust/apex/NetworkStack
 
 # Enable Google Play system updates support
 PRODUCT_SOONG_NAMESPACES += \
