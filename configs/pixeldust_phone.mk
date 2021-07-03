@@ -24,13 +24,6 @@ include vendor/pixeldust/configs/ota.mk
 include vendor/pixeldust/configs/pixel_apns.mk
 include vendor/pixeldust/configs/telephony.mk
 
-ifndef TARGET_EXCLUDE_GOOGLE_APEX
-  TARGET_EXCLUDE_GOOGLE_APEX := false
-endif
-ifeq ($(TARGET_EXCLUDE_GOOGLE_APEX),false)
-include vendor/pixeldust/configs/apex.mk
-endif
-
 # Telephony packages
 PRODUCT_PACKAGES += \
     Stk \
