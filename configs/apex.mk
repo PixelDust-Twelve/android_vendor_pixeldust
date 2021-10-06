@@ -18,6 +18,10 @@
 DEVICE_PACKAGE_OVERLAYS += \
     vendor/pixeldust/overlay-gms
 
+# Prebuilt module SDKs require prebuilt modules to work, and currently
+# prebuilt modules are only provided for com.google.android.xxx.
+MODULE_BUILD_FROM_SOURCE := false
+
 # Enable Google Play system updates support
 PRODUCT_SOONG_NAMESPACES += \
     vendor/pixeldust/apex
