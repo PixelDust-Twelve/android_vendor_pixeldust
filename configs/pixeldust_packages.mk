@@ -28,15 +28,8 @@ PRODUCT_PACKAGES += \
 
 # Build missing packages to prevent zip signing failure
 PRODUCT_HOST_PACKAGES += \
-    signapk \
-    avbtool \
-    brotli \
-    aapt2 \
-    deapexer \
-    debugfs \
-    zipalign \
-    apexer \
-    brillo_update_payload
+    sign_target_files_apks \
+    ota_from_target_files
 
 # RCS Service
 PRODUCT_PACKAGES += \
