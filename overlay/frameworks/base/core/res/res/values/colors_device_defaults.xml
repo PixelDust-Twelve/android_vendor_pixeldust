@@ -17,4 +17,6 @@
 */
 -->
 <resources>
+    <!-- Surface colors -->
+    <color name="surface_highlight_light">@android:color/system_neutral1_10</color>
 </resources>
