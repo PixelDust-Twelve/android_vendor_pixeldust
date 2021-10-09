@@ -17,4 +17,6 @@
 <resources>
     <!-- Remove power menu shadow -->
     <dimen name="global_actions_translate">0dp</dimen>
+    <!-- QS brightness margin -->
+    <dimen name="qs_brightness_margin_top">0.0dip</dimen>
 </resources>
