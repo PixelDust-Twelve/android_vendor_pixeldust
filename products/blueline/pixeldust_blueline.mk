@@ -49,7 +49,9 @@ REMOVE_GAPPS_PACKAGES += \
     pixel_experience_2019_midyear \
     pixel_experience_2019 \
     pixel_experience_2020_midyear \
-    pixel_experience_2020
+    pixel_experience_2020 \
+    NetworkPermissionConfigGoogle \
+    NetworkStackGoogle \
 
 PRODUCT_NAME := pixeldust_blueline
 PRODUCT_DEVICE := blueline
