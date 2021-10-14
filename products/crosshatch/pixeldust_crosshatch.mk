@@ -25,6 +25,9 @@ TARGET_EXCLUDE_QCOM_VENDOR_SEPOLICY := true
 # Opt out from our custom cross-device sepolicy
 TARGET_EXCLUDE_CUSTOM_DEVICE_SEPOLICY := true
 
+# Ignore selinux neverallows
+SELINUX_IGNORE_NEVERALLOWS := true
+
 # Inherit from those products. Most specific first.
 $(call inherit-product-if-exists, device/google/crosshatch/aosp_crosshatch.mk)
 
