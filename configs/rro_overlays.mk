@@ -1,4 +1,4 @@
-# Copyright (C) 2020 The PixelDust Project
+# Copyright (C) 2020-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,6 +19,22 @@ PRODUCT_PACKAGES += \
     FilesOverlay \
     PixelDocumentsUIGoogleOverlay \
     PixelDustConfigOverlay \
-    PixelTetheringOverlay \
+    PixelSetupWizardOverlayHentai \
     SettingsGoogleOverlayPixelDust
+
+# Google Overlays
+PRODUCT_PACKAGES += \
+    CaptivePortalLoginOverlay \
+    CellBroadcastReceiverOverlay \
+    CellBroadcastServiceOverlay \
+    GoogleConfigOverlay \
+    GooglePermissionControllerOverlay \
+    GoogleWebViewOverlay \
+    ManagedProvisioningPixelOverlay \
+    NetworkStackOverlay \
+    PixelConfigOverlay2018 \
+    PixelConfigOverlay2019 \
+    PixelConfigOverlay2019Midyear \
+    PixelConfigOverlayCommon \
+    PixelTetheringOverlay
 
