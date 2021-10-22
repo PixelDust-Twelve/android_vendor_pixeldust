@@ -35,7 +35,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Override fingerprint for Google Play Services and SafetyNet
 ifneq ($(PRODUCT_OVERRIDE_FINGERPRINT),)
-ADDITIONAL_SYSTEM_PROPERTIES += \
+PRODUCT_PRODUCT_PROPERTIES += \
     ro.build.stock_fingerprint=$(PRODUCT_OVERRIDE_FINGERPRINT)
 endif
 
