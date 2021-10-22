@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 The PixelDust Project
+# Copyright (C) 2018-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,30 +12,36 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/pixeldust/configs/aosp_fixes.mk
-include vendor/pixeldust/configs/audio.mk
-include vendor/pixeldust/configs/fu.mk
-include vendor/pixeldust/configs/pixeldust_main.mk
-include vendor/pixeldust/configs/pixeldust_optimizations.mk
-include vendor/pixeldust/configs/system_additions.mk
-include vendor/pixeldust/configs/version.mk
-include vendor/pixeldust/configs/ota.mk
-include vendor/pixeldust/configs/pixel_apns.mk
-include vendor/pixeldust/configs/telephony.mk
-
+$(call inherit-product, vendor/pixeldust/configs/audio.mk)
+$(call inherit-product, vendor/pixeldust/configs/fu.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixeldust_main.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixeldust_optimizations.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixeldust_packages.mk)
+$(call inherit-product, vendor/pixeldust/configs/version.mk)
+$(call inherit-product, vendor/pixeldust/configs/ota.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixel_apns.mk)
+$(call inherit-product, vendor/pixeldust/configs/telephony.mk)
 $(call inherit-product, vendor/pixeldust/prebuilt/bootanimation/bootanimation.mk)
 
+# Per default Google apex is not included (as it is only intended for pixel devices)
 ifndef TARGET_EXCLUDE_GOOGLE_APEX
   TARGET_EXCLUDE_GOOGLE_APEX := false
 endif
 ifeq ($(TARGET_EXCLUDE_GOOGLE_APEX),false)
-include vendor/pixeldust/configs/apex.mk
+$(call inherit-product, vendor/pixeldust/configs/apex.mk)
 endif
 
-# Telephony packages
-PRODUCT_PACKAGES += \
-    Stk \
-    CellBroadcastReceiver
+# Gapps
+ifeq ($(WITH_GMS),true)
+$(call inherit-product, vendor/pixelgapps/pixel-gapps.mk)
+
+# SetupWizard and Google Assistant properties
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.setupwizard.rotation_locked=true \
+    setupwizard.theme=glif_v3_light \
+    ro.opa.eligible_device=true
+endif
+
 
 # Gboard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
