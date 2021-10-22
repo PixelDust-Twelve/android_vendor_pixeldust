@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 The PixelDust Project
+# Copyright (C) 2018-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,9 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-# Disable vendor restrictions
-PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Include explicitly to work around GMS issues
 PRODUCT_PACKAGES += libprotobuf-cpp-full
@@ -29,9 +26,17 @@ PRODUCT_PACKAGES += \
     ntfsfix \
     ntfs-3g
 
-# TCP Connection Management
-PRODUCT_PACKAGES += tcmiface
-#PRODUCT_BOOT_JARS += tcmiface
+# Build missing packages to prevent zip signing failure
+PRODUCT_HOST_PACKAGES += \
+    signapk \
+    avbtool \
+    brotli \
+    aapt2 \
+    deapexer \
+    debugfs \
+    zipalign \
+    apexer \
+    brillo_update_payload
 
 # RCS Service
 PRODUCT_PACKAGES += \
@@ -56,8 +61,10 @@ PRODUCT_PACKAGES += ims-ext-common
 PRODUCT_PACKAGES += telephony-ext
 #PRODUCT_BOOT_JARS += telephony-ext
 
-# Themes
--include vendor/themes/common.mk
+# Telephony packages
+PRODUCT_PACKAGES += \
+    Stk \
+    CellBroadcastReceiver
 
 # Extra Packages
 PRODUCT_PACKAGES += \
@@ -71,6 +78,9 @@ PRODUCT_PACKAGES += \
     StitchImage \
     ThemePicker \
     Themes \
+
+# Themes
+-include vendor/themes/common.mk
 
 # Include Potato volume panels
 -include packages/apps/PotatoPlugins/plugins.mk
@@ -90,10 +100,7 @@ endif
 
 ifeq ($(INCLUDE_PIXELDUSTLAUNCHER), true)
 REMOVE_GAPPS_PACKAGES += \
-    NexusLauncherRelease \
-    WallpaperPickerGoogleRelease
-#PRODUCT_PACKAGES += \
-#    PixelDustLauncher
+    NexusLauncherRelease
 else
 INCLUDE_PIXELLAUNCHER := true
 DEVICE_PACKAGE_OVERLAYS += \
@@ -109,10 +116,6 @@ endif
 # Android Beam
 PRODUCT_COPY_FILES += \
     vendor/pixeldust/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
-
-# Hotword support for legacy devices
-PRODUCT_COPY_FILES += \
-    vendor/pixeldust/config/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml \
 
 # Backup Tool
 ifeq ($(AB_OTA_UPDATER),true)

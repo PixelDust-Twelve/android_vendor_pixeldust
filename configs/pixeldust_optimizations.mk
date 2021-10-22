@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 The PixelDust Project
+# Copyright (C) 2018-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,6 +14,12 @@
 
 # Turn off the error checks and allow PATH tool to be used
 TEMPORARY_DISABLE_PATH_RESTRICTIONS := true
+
+# Build
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+
+# Disable vendor restrictions
+PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Disable ADB authentication
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0

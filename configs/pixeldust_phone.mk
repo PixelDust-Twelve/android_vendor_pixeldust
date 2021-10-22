@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2020 The PixelDust Project
+# Copyright (C) 2018-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,30 +12,41 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include vendor/pixeldust/configs/aosp_fixes.mk
-include vendor/pixeldust/configs/audio.mk
-include vendor/pixeldust/configs/fu.mk
-include vendor/pixeldust/configs/pixeldust_main.mk
-include vendor/pixeldust/configs/pixeldust_optimizations.mk
-include vendor/pixeldust/configs/system_additions.mk
-include vendor/pixeldust/configs/version.mk
-include vendor/pixeldust/configs/ota.mk
-include vendor/pixeldust/configs/pixel_apns.mk
-include vendor/pixeldust/configs/telephony.mk
-
+$(call inherit-product, vendor/pixeldust/configs/audio.mk)
+$(call inherit-product, vendor/pixeldust/configs/fu.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixeldust_main.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixeldust_optimizations.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixeldust_packages.mk)
+$(call inherit-product, vendor/pixeldust/configs/version.mk)
+$(call inherit-product, vendor/pixeldust/configs/ota.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixel_apns.mk)
+$(call inherit-product, vendor/pixeldust/configs/telephony.mk)
 $(call inherit-product, vendor/pixeldust/prebuilt/bootanimation/bootanimation.mk)
 
+# Include pixel specific sepolicy rules
+ifneq ($(filter blueline bonito bramble coral crosshatch redfin sunfish,$(TARGET_DEVICE)),)
+$(call inherit-product, vendor/pixeldust/configs/pixel_sepolicy.mk)
+endif
+
+# Per default Google apex is not included (as it is only intended for pixel devices)
 ifndef TARGET_EXCLUDE_GOOGLE_APEX
   TARGET_EXCLUDE_GOOGLE_APEX := false
 endif
 ifeq ($(TARGET_EXCLUDE_GOOGLE_APEX),false)
-include vendor/pixeldust/configs/apex.mk
+$(call inherit-product, vendor/pixeldust/configs/apex.mk)
 endif
 
-# Telephony packages
-PRODUCT_PACKAGES += \
-    Stk \
-    CellBroadcastReceiver
+# Gapps
+ifeq ($(WITH_GMS),true)
+$(call inherit-product, vendor/pixelgapps/pixel-gapps.mk)
+
+# SetupWizard and Google Assistant properties
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.setupwizard.rotation_locked=true \
+    setupwizard.theme=glif_v3_light \
+    ro.opa.eligible_device=true
+endif
+
 
 # Gboard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -55,6 +66,13 @@ PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.feature.show_pixel_tos=true \
     setupwizard.feature.skip_button_use_mobile_data.carrier1839=true \
     setupwizard.theme=glif_v3_light
+
+# Gboard side padding
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.kb_pad_port_l=4 \
+    ro.com.google.ime.kb_pad_port_r=4 \
+    ro.com.google.ime.kb_pad_land_l=64 \
+    ro.com.google.ime.kb_pad_land_r=64 \
 
 # StorageManager configuration
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -76,6 +94,18 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.carriersetup.vzw_consent_page=true
 
 # Use gestures by default
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural;com.google.android.systemui.gxoverlay
 
+# Disable RescueParty due to high risk of data loss
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.disable_rescue=true
+
+# Disable touch video heatmap to reduce latency, motion jitter, and CPU usage
+# on supported devices with Deep Press input classifier HALs and models
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.input.video_enabled=false
+
+# Enable one-handed mode
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.support_one_handed_mode=true

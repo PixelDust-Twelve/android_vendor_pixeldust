@@ -1,4 +1,4 @@
-# Copyright (C) 2018-2019 The PixelDust Project
+# Copyright (C) 2018-2021 The PixelDust Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,6 +25,10 @@ $(call inherit-product, vendor/pixeldust/configs/rro_overlays.mk)
 PRODUCT_COPY_FILES += \
     vendor/pixeldust/prebuilt/etc/privapp-permissions/pixeldust-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/pixeldust-permissions.xml \
     vendor/pixeldust/prebuilt/etc/privapp-permissions/pixeldust-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/pixeldust-permissions.xml
+
+# Hotword support for legacy devices
+PRODUCT_COPY_FILES += \
+    vendor/pixeldust/config/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml \
 
 # Copy all init rc files
 $(foreach f,$(wildcard vendor/pixeldust/prebuilt/etc/init/*.rc),\
