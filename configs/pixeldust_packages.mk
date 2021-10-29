@@ -67,10 +67,8 @@ PRODUCT_PACKAGES += \
     LiveWallpapersPicker \
     PixeldustThemesStub \
     QuickAccessWallet \
-    SimpleDeviceConfig \
     StitchImage \
     ThemePicker \
-    Themes \
 
 # Themes
 -include vendor/themes/common.mk
@@ -78,26 +76,18 @@ PRODUCT_PACKAGES += \
 # Include Potato volume panels
 -include packages/apps/PotatoPlugins/plugins.mk
 
-# Devices should opt-in to include Seedvault
-ifneq ($(filter blueline bonito bramble coral crosshatch miatoll redfin sunfish surya taimen,$(TARGET_DEVICE)),)
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    vendor/pixeldust/overlay-seedvault
-PRODUCT_PACKAGES += \
-    Seedvault
-endif
-
 # Devices should opt-in to include PixelDustLauncher
-ifneq ($(filter marlin sailfish blueline bonito bramble coral crosshatch miatoll redfin sunfish surya taimen,$(TARGET_DEVICE)),)
-INCLUDE_PIXELDUSTLAUNCHER := true
-endif
+#ifneq ($(filter marlin sailfish blueline bonito bramble coral crosshatch miatoll redfin sunfish surya taimen,$(TARGET_DEVICE)),)
+#INCLUDE_PIXELDUSTLAUNCHER := true
+#endif
 
 ifeq ($(INCLUDE_PIXELDUSTLAUNCHER), true)
 REMOVE_GAPPS_PACKAGES += \
     NexusLauncherRelease
 else
 INCLUDE_PIXELLAUNCHER := true
-DEVICE_PACKAGE_OVERLAYS += \
-    vendor/pixeldust/overlay-nexuslauncher
+#DEVICE_PACKAGE_OVERLAYS += \
+#    vendor/pixeldust/overlay-nexuslauncher
 endif
 
 # Pixel specific
