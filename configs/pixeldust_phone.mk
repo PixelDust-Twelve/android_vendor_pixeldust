@@ -14,25 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, vendor/pixeldust/configs/audio.mk)
-$(call inherit-product, vendor/pixeldust/prebuilt/bootanimation/bootanimation.mk)
-$(call inherit-product, vendor/pixeldust/configs/pixeldust_packages.mk)
-$(call inherit-product, vendor/pixeldust/configs/pixel_sepolicy.mk)
-$(call inherit-product, vendor/pixeldust/configs/rro_overlays.mk)
-$(call inherit-product, vendor/pixeldust/configs/textclassifier.mk)
-$(call inherit-product, vendor/pixeldust/configs/version.mk)
-
-# Gapps
-ifeq ($(WITH_GMS),true)
-$(call inherit-product, vendor/pixelgapps/pixel-gapps.mk)
-
-# SetupWizard and Google Assistant properties
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.setupwizard.rotation_locked=true \
-    setupwizard.theme=glif_v3_light \
-    ro.opa.eligible_device=true
-endif
-
 # Gboard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.ime.bs_theme=true \
@@ -91,3 +72,16 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/pixeldust/overlay
 
+# Inherit from our configs
+$(call inherit-product, vendor/pixeldust/configs/audio.mk)
+$(call inherit-product, vendor/pixeldust/prebuilt/bootanimation/bootanimation.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixeldust_packages.mk)
+$(call inherit-product, vendor/pixeldust/configs/pixel_sepolicy.mk)
+$(call inherit-product, vendor/pixeldust/configs/rro_overlays.mk)
+$(call inherit-product, vendor/pixeldust/configs/textclassifier.mk)
+$(call inherit-product, vendor/pixeldust/configs/version.mk)
+
+# Gapps
+ifeq ($(WITH_GMS),true)
+$(call inherit-product, vendor/pixelgapps/pixel-gapps.mk)
+endif
