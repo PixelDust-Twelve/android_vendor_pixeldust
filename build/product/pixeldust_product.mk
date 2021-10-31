@@ -17,8 +17,8 @@
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Inherit pixeldust common stuff.
-$(call inherit-product, vendor/pixeldust/configs/pixeldust_phone.mk)
+# Inherit pixeldust product configs.
+$(call inherit-product, vendor/pixeldust/configs/telephony.mk)
 
 # Includes all AOSP product packages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
