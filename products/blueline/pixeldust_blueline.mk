@@ -39,7 +39,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
 
 # Release name
-export TARGET_DEVICE=blueline
+#export TARGET_DEVICE=blueline
 
 # Bootanimation
 BOOTANIMATION := 1080
@@ -69,7 +69,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.pixeldust.device="blueline"
 
 # Inherit AOSP stuff
-$(call inherit-product, vendor/pixeldust/configs/telephony.mk)
+$(call inherit-product, vendor/pixeldust/config/common_telephony.mk)
 $(call inherit-product, device/google/crosshatch/device-blueline.mk)
 
 PRODUCT_COPY_FILES += device/google/crosshatch/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
