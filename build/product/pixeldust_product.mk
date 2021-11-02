@@ -27,9 +27,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
 # Additional settings used in all AOSP builds
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.android.dataroaming?=false \
-    ro.carrier=unknown \
-    keyguard.no_require_sim=true \
-    net.tethering.noprovisioning=true
 
 # More AOSP packages
 PRODUCT_PACKAGES += \
