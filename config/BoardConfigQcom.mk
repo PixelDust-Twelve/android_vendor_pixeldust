@@ -56,17 +56,6 @@ ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY),$(TARGET_BO
     TARGET_USES_DRM_PP := true
 endif
 
-# Mark GRALLOC_USAGE_HW_2D, GRALLOC_USAGE_EXTERNAL_DISP and GRALLOC_USAGE_PRIVATE_WFD as valid gralloc bits
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS ?= 0
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 10)
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 13)
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 21)
-
-# Mark GRALLOC_USAGE_PRIVATE_HEIF_VIDEO as valid gralloc bits on UM platforms that support it
-ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY),$(TARGET_BOARD_PLATFORM)),)
-    TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS += | (1 << 27)
-endif
-
 # List of targets that use master side content protection
 MASTER_SIDE_CP_TARGET_LIST := msm8996 $(UM_4_4_FAMILY) $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY)
 
@@ -99,30 +88,13 @@ else
     QCOM_HARDWARE_VARIANT := $(TARGET_BOARD_PLATFORM)
 endif
 
-# Allow a device to opt-out hardset of PRODUCT_SOONG_NAMESPACES
-QCOM_SOONG_NAMESPACE ?= hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)
-PRODUCT_SOONG_NAMESPACES += $(QCOM_SOONG_NAMESPACE)
-
-# Add display-commonsys-intf to PRODUCT_SOONG_NAMESPACES for QSSI supported platforms
-ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-    PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/commonsys-intf/display
+# Allow a device to manually override which HALs it wants to use
+ifneq ($(OVERRIDE_QCOM_HARDWARE_VARIANT),)
+    QCOM_HARDWARE_VARIANT := $(OVERRIDE_QCOM_HARDWARE_VARIANT)
 endif
 
-# Add data-ipa-cfg-mgr to PRODUCT_SOONG_NAMESPACES if needed
-ifneq ($(USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR),true)
-    PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/data-ipa-cfg-mgr
-endif
-
-# Add dataservices to PRODUCT_SOONG_NAMESPACES if needed
-ifneq ($(USE_DEVICE_SPECIFIC_DATASERVICES),true)
-    PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/dataservices
-endif
-
-ifeq ($(TARGET_USE_QTI_BT_STACK),true)
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/qcom/opensource/commonsys/packages/apps/Bluetooth \
-    vendor/qcom/opensource/commonsys/system/bt/conf
-endif #TARGET_USE_QTI_BT_STACK
+    hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)
 
 # QCOM HW crypto
 ifeq ($(TARGET_HW_DISK_ENCRYPTION),true)
