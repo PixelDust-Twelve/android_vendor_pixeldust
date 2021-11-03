@@ -39,7 +39,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
 
 # Release name
-export TARGET_DEVICE=blueline
+#export TARGET_DEVICE=blueline
 
 # Bootanimation
 BOOTANIMATION := 1080
