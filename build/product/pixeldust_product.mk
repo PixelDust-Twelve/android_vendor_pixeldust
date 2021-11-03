@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The PixelDust Project
+# Copyright (C) 2020 Raphielscape LLC. and Haruka LLC.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Inherit pixeldust product configs.
-$(call inherit-product, vendor/pixeldust/configs/telephony.mk)
+# Inherit hentai products.
+$(call inherit-product, vendor/pixeldust/config/common_telephony.mk)
 
 # Includes all AOSP product packages
 $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)

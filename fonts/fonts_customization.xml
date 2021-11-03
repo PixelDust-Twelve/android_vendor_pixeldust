@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (C) 2020-2021 The PixelDust Project
+    Copyright (C) 2021 Raphielscape LLC.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -16,42 +16,42 @@
 -->
 <fonts-modification version="1">
     <family customizationType="new-named-family" name="google-sans">
-      <font weight="400" style="normal">GoogleSans-Regular.ttf
+      <font weight="400" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="400"/>
       </font>
-      <font weight="500" style="normal">GoogleSans-Regular.ttf
+      <font weight="500" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="500"/>
       </font>
-      <font weight="600" style="normal">GoogleSans-Regular.ttf
+      <font weight="600" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="600"/>
       </font>
-      <font weight="700" style="normal">GoogleSans-Regular.ttf
+      <font weight="700" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="700"/>
       </font>
-      <font weight="400" style="italic">GoogleSans-Italic.ttf
+      <font weight="400" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="400"/>
       </font>
-      <font weight="500" style="italic">GoogleSans-Italic.ttf
+      <font weight="500" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="500"/>
       </font>
-      <font weight="600" style="italic">GoogleSans-Italic.ttf
+      <font weight="600" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="600"/>
       </font>
-      <font weight="700" style="italic">GoogleSans-Italic.ttf
+      <font weight="700" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="700"/>
@@ -59,7 +59,7 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-medium">
-      <font weight="500" style="normal">GoogleSans-Regular.ttf
+      <font weight="500" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="500"/>
@@ -67,7 +67,7 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-bold">
-      <font weight="700" style="normal">GoogleSans-Regular.ttf
+      <font weight="700" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="18.0"/>
         <axis tag="wght" stylevalue="700"/>
@@ -75,42 +75,42 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-text">
-      <font weight="400" style="normal">GoogleSans-Regular.ttf
+      <font weight="400" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="400"/>
       </font>
-      <font weight="500" style="normal">GoogleSans-Regular.ttf
+      <font weight="500" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="500"/>
       </font>
-      <font weight="600" style="normal">GoogleSans-Regular.ttf
+      <font weight="600" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="600"/>
       </font>
-      <font weight="700" style="normal">GoogleSans-Regular.ttf
+      <font weight="700" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="700"/>
       </font>
-      <font weight="400" style="italic">GoogleSans-Italic.ttf
+      <font weight="400" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="400"/>
       </font>
-      <font weight="500" style="italic">GoogleSans-Italic.ttf
+      <font weight="500" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="500"/>
       </font>
-      <font weight="600" style="italic">GoogleSans-Italic.ttf
+      <font weight="600" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="600"/>
       </font>
-      <font weight="700" style="italic">GoogleSans-Italic.ttf
+      <font weight="700" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="700"/>
@@ -118,7 +118,7 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-text-medium">
-      <font weight="500" style="normal">GoogleSans-Regular.ttf
+      <font weight="500" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="500"/>
@@ -126,7 +126,7 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-text-bold">
-      <font weight="700" style="normal">GoogleSans-Regular.ttf
+      <font weight="700" style="normal">GInterVF-Roman.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="700"/>
@@ -134,7 +134,7 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-text-italic">
-      <font weight="400" style="italic">GoogleSans-Italic.ttf
+      <font weight="400" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="400"/>
@@ -142,7 +142,7 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-text-medium-italic">
-      <font weight="500" style="italic">GoogleSans-Italic.ttf
+      <font weight="500" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="500"/>
@@ -150,12 +150,28 @@
     </family>
 
     <family customizationType="new-named-family" name="google-sans-text-bold-italic">
-      <font weight="700" style="italic">GoogleSans-Italic.ttf
+      <font weight="700" style="italic">GInterVF-Italic.ttf
         <axis tag="GRAD" stylevalue="0"/>
         <axis tag="opsz" stylevalue="17.0"/>
         <axis tag="wght" stylevalue="700"/>
       </font>
     </family>
+
+    <family customizationType="new-named-family" name="harmonyos-sans">
+      <font weight="100" style="normal">HarmonyOS-Sans-Thin.ttf</font>
+      <font weight="100" style="italic">HarmonyOS-Sans-ThinItalic.ttf</font>
+      <font weight="300" style="normal">HarmonyOS-Sans-Light.ttf</font>
+      <font weight="300" style="italic">HarmonyOS-Sans-LightItalic.ttf</font>
+      <font weight="400" style="normal">HarmonyOS-Sans-Regular.ttf</font>
+      <font weight="400" style="italic">HarmonyOS-Sans-Italic.ttf</font>
+      <font weight="500" style="normal">HarmonyOS-Sans-Medium.ttf</font>
+      <font weight="500" style="italic">HarmonyOS-Sans-MediumItalic.ttf</font>
+      <font weight="700" style="normal">HarmonyOS-Sans-Bold.ttf</font>
+      <font weight="700" style="italic">HarmonyOS-Sans-BoldItalic.ttf</font>
+      <font weight="900" style="normal">HarmonyOS-Sans-Black.ttf</font>
+      <font weight="900" style="italic">HarmonyOS-Sans-BlackItalic.ttf</font>
+    </family>
+    <alias name="harmonyos-sans-medium" to="harmonyos-sans" weight="500"/>
 
     <family customizationType="new-named-family" name="arbutus-slab">
       <font weight="400" style="normal">ArbutusSlab-Regular.ttf</font>
