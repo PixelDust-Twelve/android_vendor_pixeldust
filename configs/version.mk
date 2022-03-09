@@ -16,7 +16,7 @@
 
 # Pixel Dust ROM versioning
 PD_ROM_MAJ_VERSION := PixelDust-Snowcone
-ANDROID_OS_VERSION := 12.0.0
+ANDROID_OS_VERSION := 12.1.0
 BUILD_VERSION_CODE := aosp
 
 ifndef SIGN_KEY
