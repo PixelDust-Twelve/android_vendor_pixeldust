@@ -45,7 +45,7 @@ export TARGET_DEVICE=blueline
 BOOTANIMATION := 1080
 
 # Google Apex
-#WITH_GOOGLE_APEX := true
+WITH_GOOGLE_APEX := true
 
 # Google Apps
 WITH_GMS := true
