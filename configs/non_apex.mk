@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Networkstack certificate
+PRODUCT_MAINLINE_SEPOLICY_DEV_CERTIFICATES := vendor/pixeldust/apex/NetworkStack
+
 # Enable Google Play system updates support
 PRODUCT_SOONG_NAMESPACES += \
     vendor/pixeldust/apex
@@ -24,4 +27,6 @@ PRODUCT_PACKAGES += \
 
 # Google Apexes
 PRODUCT_PACKAGES += \
-	com.google.android.extservices
+    com.google.android.extservices \
+    com.google.android.tethering \
+    com.google.android.wifi
