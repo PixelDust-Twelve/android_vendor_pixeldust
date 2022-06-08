@@ -90,6 +90,9 @@ PRODUCT_COPY_FILES += \
     vendor/pixeldust/prebuilt/etc/sysconfig/quick_tap.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/quick_tap.xml
 endif
 
+# Inherit from gprivate config
+$(call inherit-product-if-exists, vendor/gprivate/gprivate.mk)
+
 # Backup Tool
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
